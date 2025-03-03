@@ -1,10 +1,14 @@
 <script setup>
+    import CountdownTimer from './CountdownTimer.vue';
+    import { ref } from 'vue';
+
     import {faker} from '@faker-js/faker'
     const firstname = faker.person.firstName()
     const lastname = faker.person.lastName()
     const jobtitle = faker.person.jobTitle()
     const bio = faker.lorem.lines(2)
-    const username = faker.internet.username({firstName: firstname, lastName: lastname}).toLowerCase()
+    const username = faker.internet.username({ firstName: firstname, lastName: lastname }).toLowerCase()
+
 </script>
 
 <template>
@@ -16,7 +20,12 @@
                 <p class="mb-3 font-normal text-gray-800">{{ jobtitle }}</p>
                 <p class="mb-3 font-normal text-gray-800">{{ bio }}</p>
             </div>
-
         </div>
     </RouterLink>
+    <div class="p-5 rounded-lg shadow-md text-white text-center":style="{ backgroundColor: cardColor }">
+        <h3 class="text-lg font-semibold">{{ title }}</h3>
+        <p class="text-sm">{{ description }}</p>
+
+        <CountdownTimer />
+    </div>
 </template>

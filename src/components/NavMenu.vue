@@ -14,7 +14,7 @@
     </div>
   </nav>
   <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Company Directory</h1>
+    <h1 class="text-xl font-bold">Countdown Timer</h1>
     
     <div class="space-x-2">
       <button @click="startTimer" class="px-4 py-2 bg-green-500 rounded-md hover:bg-green-600">Start</button>
