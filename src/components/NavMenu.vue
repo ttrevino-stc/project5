@@ -13,6 +13,15 @@
       <RouterLink :to="{name: 'LoginPage'}">Login</RouterLink>
     </div>
   </nav>
+  <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Company Directory</h1>
+    
+    <div class="space-x-2">
+      <button @click="startTimer" class="px-4 py-2 bg-green-500 rounded-md hover:bg-green-600">Start</button>
+      <button @click="stopTimer" class="px-4 py-2 bg-red-500 rounded-md hover:bg-red-600">Stop</button>
+      <button @click="resetTimer" class="px-4 py-2 bg-gray-500 rounded-md hover:bg-gray-600">Reset</button>
+    </div>
+  </nav>
 </template>
 
 <style lang="postcss" scoped>
@@ -25,8 +34,18 @@ nav {
 }
 </style>
 
-<script setup>
+<script>
 import { useAuth } from '../composables/useAuth';
-const {isAuthenticated, logout, user} = useAuth()
+import { inject } from 'vue';
+
+const { isAuthenticated, logout, user } = useAuth()
+
+export default {
+  setup() {
+    const { startTimer, stopTimer, resetTimer } = inject('timer');
+
+    return { startTimer, stopTimer, resetTimer };
+  }
+};
 
 </script>
